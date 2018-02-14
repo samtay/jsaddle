@@ -114,6 +114,7 @@ HsStablePtr global_didFailToRegisterForRemoteNotificationsWithError = 0;
     // TODO Allow a configurable CString -> IO () to be passed into AppDelegateConfig
     if ([userInfo valueForKeyPath:@"aps.badge"] != nil) {
         [UIApplication sharedApplication].applicationIconBadgeNumber=[[[userInfo objectForKey:@"aps"] objectForKey:@"badge"] intValue];
+        NSLog(@"Badge set to: %ld", (long)[UIApplication sharedApplication].applicationIconBadgeNumber);
     }
     completionHandler(UIBackgroundFetchResultNewData);
 }
